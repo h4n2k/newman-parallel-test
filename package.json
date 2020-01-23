@@ -1,0 +1,18 @@
+{
+  "name": "newman-parallel-test",
+  "version": "1.0.0",
+  "description": "Simple parallel test which run multiple postman collection in parallel ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": "https://github.com/h4n2k/newman-parallel-test.git",
+  "author": "Burhanuddin Hadianto <burhanuddin.hadianto@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.1.0",
+    "json-beautify": "^1.1.1",
+    "newman": "^4.5.7",
+    "path": "^0.12.7"
+  }
+}
