@@ -1,0 +1,2153 @@
+❯ npm run start
+
+> newman-parallel-test@1.0.0 start /home/han/Works/wallex/rd/newman-parallel-test
+> node index.js
+
+postmanEnvironment:  {
+  id: '251e7ceb-6879-4eb2-b42a-56b512879fab',
+  name: 'Wallex Burhan - Local',
+  values: [
+    { key: 'ADDR', value: 'http://localhost:8080', enabled: true },
+    { key: 'TRANSACTION_FUNDING_ID', value: '16', enabled: true },
+    {
+      key: 'key',
+      value: '23c103c001c711e999ce065f88b5bfa2',
+      enabled: true
+    },
+    {
+      key: 'secret',
+      value: '3E567065103FA171F10156BE6BE1366078FC881C05AC03697C5047235875F170',
+      enabled: true
+    },
+    {
+      key: 'graphql_url',
+      value: 'http://localhost:8080/graphql',
+      enabled: true
+    },
+    { key: 'TRANSACTION_ID', value: '18', enabled: true },
+    { key: 'CONVERSION_ID', value: '1', enabled: true },
+    { key: 'CONVERSION_TOTAL_AMOUNT', value: '1062942', enabled: true },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNT1',
+      value: '2072298',
+      enabled: true
+    },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNT2',
+      value: '3085898',
+      enabled: true
+    },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNTS',
+      value: '5158196',
+      enabled: true
+    },
+    { key: 'CONVERSION_ID2', value: '2', enabled: true }
+  ],
+  _postman_variable_scope: 'environment',
+  _postman_exported_at: '2020-01-22T01:55:15.721Z',
+  _postman_exported_using: 'Postman/7.16.0'
+}
+newman
+
+Seq Funding Accept v2 - 1 - Seed
+
+❏ Funding Accept 1 - Funding >
+↳ -- Login: wallex.test+a1@outlook.com
+  POST http://localhost:8080/api/users/login [200 OK, 1.84KB, 376ms]
+
+↳ Conversions - Rates
+  POST http://localhost:8080/api/conversions/rates [200 OK, 832B, 972ms]
+
+↳ Conversions - Create
+  ┌
+  │ 'DATE: 2020-01-24'
+  └
+  POST http://localhost:8080/api/conversions/create [200 OK, 876B, 167ms]
+
+↳ Funding - Create
+  POST http://localhost:8080/api/funding/create [200 OK, 641B, 107ms]
+
+❏ Funding Accept 2 - Funding =
+↳ -- Login: wallex.test+b1@outlook.com
+  POST http://localhost:8080/api/users/login [200 OK, 1.85KB, 131ms]
+
+↳ Conversions - Rates
+  POST http://localhost:8080/api/conversions/rates [200 OK, 832B, 712ms]
+
+↳ Conversions - Create
+  ┌
+  │ 'DATE: 2020-01-24'
+  └
+  POST http://localhost:8080/api/conversions/create [200 OK, 876B, 146ms]
+
+↳ Funding - Create
+  POST http://localhost:8080/api/funding/create [200 OK, 641B, 78ms]
+
+❏ Funding Accept 3 - Funding <
+↳ -- Login: wallex.test+c1@outlook.com
+  POST http://localhost:8080/api/users/login [200 OK, 1.83KB, 82ms]
+
+↳ Conversions - Rates
+  POST http://localhost:8080/api/conversions/rates [200 OK, 832B, 640ms]
+
+↳ Conversions - Create
+  ┌
+  │ 'DATE: 2020-01-24'
+  └
+  POST http://localhost:8080/api/conversions/create [200 OK, 876B, 163ms]
+
+↳ Funding - Create
+  POST http://localhost:8080/api/funding/create [200 OK, 640B, 84ms]
+
+❏ Funding Accept 4 - 2 Conv - Funding = 
+↳ -- Login: wallex.test+d1@outlook.com
+  POST http://localhost:8080/api/users/login [200 OK, 1.83KB, 78ms]
+
+↳ Conversions - Rates
+  POST http://localhost:8080/api/conversions/rates [200 OK, 832B, 681ms]
+
+↳ Conversions - Create
+  ┌
+  │ 'DATE: 2020-01-24'
+  └
+  POST http://localhost:8080/api/conversions/create [200 OK, 876B, 138ms]
+
+↳ Conversions - Rates 2
+  POST http://localhost:8080/api/conversions/rates [200 OK, 833B, 640ms]
+
+↳ Conversions - Create 2
+  ┌
+  │ 'DATE: 2020-01-24'
+  └
+  POST http://localhost:8080/api/conversions/create [200 OK, 877B, 119ms]
+
+↳ Funding - Create
+  ┌
+  │ 'total_amount1: ', 2059404
+  │ 'total_amount2: ', 3066704
+  │ 'total_amounts: ', 5126108
+  └
+  POST http://localhost:8080/api/funding/create [200 OK, 641B, 75ms]
+
+┌─────────────────────────┬────────────────────┬────────────────────┐
+│                         │           executed │             failed │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              iterations │                  1 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│                requests │                 18 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│            test-scripts │                 54 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│      prerequest-scripts │                 42 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              assertions │                  0 │                  0 │
+├─────────────────────────┴────────────────────┴────────────────────┤
+│ total run duration: 6.7s                                          │
+├───────────────────────────────────────────────────────────────────┤
+│ total data received: 13.49KB (approx)                             │
+├───────────────────────────────────────────────────────────────────┤
+│ average response time: 299ms [min: 75ms, max: 972ms, s.d.: 282ms] │
+└───────────────────────────────────────────────────────────────────┘
+-- Login: wallex.test+a1@outlook.com
+>>> request: 
+POST
+http://localhost:8080/api/users/login
+body: 
+{ username: 'wallex.test+a1@outlook.com', password: 'Wallex$2019' }
+>>> response: 
+{
+  "user": {
+    "idusers": 3,
+    "id": "7ad31332-d4ac-49e9-ad13-aba2a23673dd",
+    "id_account": 2,
+    "username": "wallex.test+a1@outlook.com",
+    "customer_ref": "200124-00003",
+    "email": "wallex.test+a1@outlook.com",
+    "status": "3",
+    "status_internal_code": "1100",
+    "first_name": "A1",
+    "last_name": "Account A",
+    "mobile_country_code": "+65",
+    "mobile_telephone": "98465682",
+    "country": "SG",
+    "last_login": null,
+    "last_logout": null,
+    "failed_attempts": 0,
+    "last_failed": null,
+    "language": "en",
+    "level": 2,
+    "origin": "wallex",
+    "department": null,
+    "timezone": "Asia/Singapore",
+    "referral_code": null,
+    "follow_up": null,
+    "disabled_at": null,
+    "email_verified_at": null,
+    "account": {
+      "id": "e2b90210-defb-456b-96de-66db5613b324",
+      "id_account": 2,
+      "name": "Account A",
+      "business_type": "A - Agriculture, forestry and fishing",
+      "account_class": "standard",
+      "type": "company",
+      "partner_id": null,
+      "created_at": "2020-01-24T08:33:37.205",
+      "approved_at": null
+    },
+    "approved_at": null,
+    "status_code": "APPROVED",
+    "roles": [ "user" ],
+    "role": "user",
+    "last_active_client": {},
+    "clients": [],
+    "products": [ "web-app" ],
+    "isAdmin": 0,
+    "isDealer": 0,
+    "hasVa": 0,
+    "hasApp": 1,
+    "notification_method": "SMS",
+    "company_name": "Cole - Stamm",
+    "partner": null,
+    "current_client": null,
+    "mfa_status": { "login": { "status": "verified" } },
+    "current_login": "2020-01-24 08:34:23",
+    "last_active_time": 1579854864,
+    "screenings": [],
+    "permissions": {},
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3YWxsZXgudGVzdCthMUBvdXRsb29rLmNvbSIsImlhdCI6MTU3OTg1NDg2NH0=._vsMSrkGwMR31Khbgy4pq6phU8gzRlI1cSb3iM5nN0w="
+  },
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3YWxsZXgudGVzdCthMUBvdXRsb29rLmNvbSIsImlhdCI6MTU3OTg1NDg2NH0=._vsMSrkGwMR31Khbgy4pq6phU8gzRlI1cSb3iM5nN0w="
+}
+----------------------------------
+Conversions - Rates
+>>> request: 
+POST
+http://localhost:8080/api/conversions/rates
+body: 
+{
+  sell_currency: 'IDR',
+  buy_currency: 'SGD',
+  fixed_side: 'buy',
+  amount: 100
+}
+>>> response: 
+{
+  "settlement_cut_off_time": "2020-01-25T08:34:24.000Z",
+  "currency_pair": "SGDIDR",
+  "client_buy_currency": "SGD",
+  "client_sell_currency": "IDR",
+  "client_buy_amount": 100,
+  "client_sell_amount": 1007300,
+  "fixed_side": "buy",
+  "client_rate": 10073,
+  "mid_market_rate": 10063,
+  "wallex_fee_rate": 0.04447930110195572,
+  "wallex_fee": 44804,
+  "total_amount": 1052104,
+  "wallex_settlement_cut_off_time": "2020-01-25T08:34:24.000Z",
+  "rate_id": "bec0325a-7eb5-4fea-80dc-16b49cb97278",
+  "expires_at": "2020-01-24T08:37:25.061Z",
+  "quote_uuid": "809d3de4-d0c6-4521-89c2-57edd3da20c9",
+  "conversion_date": "2020-01-27"
+}
+----------------------------------
+Conversions - Create
+>>> request: 
+POST
+http://localhost:8080/api/conversions/create
+body: 
+{
+  reason: 'Wallex Conversion - Postman - Fathoni',
+  reference_id: 'ABCDEFG-123456',
+  quote_uuid: '809d3de4-d0c6-4521-89c2-57edd3da20c9'
+}
+>>> response: 
+{
+  "idconversions": 1,
+  "username": "wallex.test+a1@outlook.com",
+  "short_reference": "-",
+  "settlement_date": "2020-01-25T08:34:24.000Z",
+  "wallex_settlement_date": "2020-01-24T08:34:25.195Z",
+  "conversion_date": "2020-01-24T08:34:25.195Z",
+  "reference_id": "ABCDEFG-123456",
+  "currency_pair": "SGDIDR",
+  "buy_currency": "SGD",
+  "sell_currency": "IDR",
+  "fixed_side": "buy",
+  "client_buy_amount": 100,
+  "client_sell_amount": 1007300,
+  "total_amount": 1052104,
+  "client_rate": 10073,
+  "mid_market_rate": 0,
+  "market_rate": 0,
+  "market_buy_amount": 0,
+  "market_sell_amount": 0,
+  "wallex_fee_rate": 0.04447930110195572,
+  "idusers": 3,
+  "id_account": 2,
+  "rate_decimal_places": 0
+}
+----------------------------------
+Funding - Create
+>>> request: 
+POST
+http://localhost:8080/api/funding/create
+body: 
+{
+  amount: 1200000,
+  funding_method: 'BANK_TRANSFER',
+  currency: 'IDR',
+  reference: 'POSTMAN',
+  bank_account_number: '2612630888'
+}
+>>> response: 
+{
+  "idfunding": 16,
+  "idusers": 3,
+  "id_account": 2,
+  "username": "wallex.test+a1@outlook.com",
+  "currency": "IDR",
+  "amount": 1200000,
+  "transfer_date": null,
+  "completion_date": null,
+  "reference": "POSTMAN",
+  "bank_name": "BANK CENTRAL ASIA",
+  "bank_account_number": "2612630888",
+  "funding_method": "BANK_TRANSFER",
+  "status": "pending",
+  "creation_date": "2020-01-24T08:34:25.435",
+  "payment_incoming_date": null
+}
+>> idfunding:  16
+----------------------------------
+-- Login: wallex.test+b1@outlook.com
+>>> request: 
+POST
+http://localhost:8080/api/users/login
+body: 
+{ username: 'wallex.test+b1@outlook.com', password: 'Wallex$2019' }
+>>> response: 
+{
+  "user": {
+    "idusers": 5,
+    "id": "0a906f2f-181b-42ab-8bc6-3380b639b46e",
+    "id_account": 3,
+    "username": "wallex.test+b1@outlook.com",
+    "customer_ref": "200124-00005",
+    "email": "wallex.test+b1@outlook.com",
+    "status": "3",
+    "status_internal_code": "1100",
+    "first_name": "B1",
+    "last_name": "Account B",
+    "mobile_country_code": "+65",
+    "mobile_telephone": "98465682",
+    "country": "SG",
+    "last_login": null,
+    "last_logout": null,
+    "failed_attempts": 0,
+    "last_failed": null,
+    "language": "en",
+    "level": 2,
+    "origin": "wallex",
+    "department": null,
+    "timezone": "Asia/Singapore",
+    "referral_code": null,
+    "follow_up": null,
+    "disabled_at": null,
+    "email_verified_at": null,
+    "account": {
+      "id": "79174e3c-b8cb-452b-af1f-b43fad91f0ef",
+      "id_account": 3,
+      "name": "Account B",
+      "country": "SG",
+      "business_type": "A - Agriculture, forestry and fishing",
+      "account_class": "standard",
+      "type": "company",
+      "partner_id": null,
+      "created_at": "2020-01-24T08:33:37.544",
+      "approved_at": null
+    },
+    "approved_at": null,
+    "status_code": "APPROVED",
+    "roles": [ "user" ],
+    "role": "user",
+    "last_active_client": {},
+    "clients": [],
+    "products": [ "web-app" ],
+    "isAdmin": 0,
+    "isDealer": 0,
+    "hasVa": 0,
+    "hasApp": 1,
+    "notification_method": "SMS",
+    "company_name": "Boyle and Sons",
+    "partner": null,
+    "current_client": null,
+    "mfa_status": { "login": { "status": "verified" } },
+    "current_login": "2020-01-24 08:34:25",
+    "last_active_time": 1579854866,
+    "screenings": [],
+    "permissions": {},
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3YWxsZXgudGVzdCtiMUBvdXRsb29rLmNvbSIsImlhdCI6MTU3OTg1NDg2Nn0=.TD-bvf1lu-xkBmEqZFlU3GKzTkWL3RUs5-q_cv6Hr-8="
+  },
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3YWxsZXgudGVzdCtiMUBvdXRsb29rLmNvbSIsImlhdCI6MTU3OTg1NDg2Nn0=.TD-bvf1lu-xkBmEqZFlU3GKzTkWL3RUs5-q_cv6Hr-8="
+}
+----------------------------------
+Conversions - Rates
+>>> request: 
+POST
+http://localhost:8080/api/conversions/rates
+body: 
+{
+  sell_currency: 'IDR',
+  buy_currency: 'SGD',
+  fixed_side: 'buy',
+  amount: 100
+}
+>>> response: 
+{
+  "settlement_cut_off_time": "2020-01-25T08:34:26.000Z",
+  "currency_pair": "SGDIDR",
+  "client_buy_currency": "SGD",
+  "client_sell_currency": "IDR",
+  "client_buy_amount": 100,
+  "client_sell_amount": 1007300,
+  "fixed_side": "buy",
+  "client_rate": 10073,
+  "mid_market_rate": 10063,
+  "wallex_fee_rate": 0.04447930110195572,
+  "wallex_fee": 44804,
+  "total_amount": 1052104,
+  "wallex_settlement_cut_off_time": "2020-01-25T08:34:26.000Z",
+  "rate_id": "0d7fe309-3993-40c9-8526-046c8ddc7265",
+  "expires_at": "2020-01-24T08:49:26.513Z",
+  "quote_uuid": "2463bb5e-7734-4b09-945e-35b64f6d4ed8",
+  "conversion_date": "2020-01-27"
+}
+----------------------------------
+Conversions - Create
+>>> request: 
+POST
+http://localhost:8080/api/conversions/create
+body: 
+{
+  reason: 'Wallex Conversion - Postman - Fathoni',
+  reference_id: 'ABCDEFG-123456',
+  quote_uuid: '2463bb5e-7734-4b09-945e-35b64f6d4ed8'
+}
+>>> response: 
+{
+  "idconversions": 2,
+  "username": "wallex.test+b1@outlook.com",
+  "short_reference": "-",
+  "settlement_date": "2020-01-25T08:34:26.000Z",
+  "wallex_settlement_date": "2020-01-24T08:34:26.614Z",
+  "conversion_date": "2020-01-24T08:34:26.614Z",
+  "reference_id": "ABCDEFG-123456",
+  "currency_pair": "SGDIDR",
+  "buy_currency": "SGD",
+  "sell_currency": "IDR",
+  "fixed_side": "buy",
+  "client_buy_amount": 100,
+  "client_sell_amount": 1007300,
+  "total_amount": 1052104,
+  "client_rate": 10073,
+  "mid_market_rate": 0,
+  "market_rate": 0,
+  "market_buy_amount": 0,
+  "market_sell_amount": 0,
+  "wallex_fee_rate": 0.04447930110195572,
+  "idusers": 5,
+  "id_account": 3,
+  "rate_decimal_places": 0
+}
+----------------------------------
+Funding - Create
+>>> request: 
+POST
+http://localhost:8080/api/funding/create
+body: 
+{
+  amount: '1052104',
+  funding_method: 'BANK_TRANSFER',
+  currency: 'IDR',
+  reference: 'POSTMAN',
+  bank_account_number: '2612630888'
+}
+>>> response: 
+{
+  "idfunding": 17,
+  "idusers": 5,
+  "id_account": 3,
+  "username": "wallex.test+b1@outlook.com",
+  "currency": "IDR",
+  "amount": 1052104,
+  "transfer_date": null,
+  "completion_date": null,
+  "reference": "POSTMAN",
+  "bank_name": "BANK CENTRAL ASIA",
+  "bank_account_number": "2612630888",
+  "funding_method": "BANK_TRANSFER",
+  "status": "pending",
+  "creation_date": "2020-01-24T08:34:26.816",
+  "payment_incoming_date": null
+}
+>> idfunding:  17
+----------------------------------
+-- Login: wallex.test+c1@outlook.com
+>>> request: 
+POST
+http://localhost:8080/api/users/login
+body: 
+{ username: 'wallex.test+c1@outlook.com', password: 'Wallex$2019' }
+>>> response: 
+{
+  "user": {
+    "idusers": 7,
+    "id": "d60edb18-6952-4935-8d51-b40d93fbb8b8",
+    "id_account": 4,
+    "username": "wallex.test+c1@outlook.com",
+    "customer_ref": "200124-00007",
+    "email": "wallex.test+c1@outlook.com",
+    "status": "3",
+    "status_internal_code": "1100",
+    "first_name": "C1",
+    "last_name": "Account C",
+    "mobile_country_code": "+65",
+    "mobile_telephone": "98465682",
+    "country": "SG",
+    "last_login": null,
+    "last_logout": null,
+    "failed_attempts": 0,
+    "last_failed": null,
+    "language": "en",
+    "level": 1,
+    "origin": "wallex",
+    "department": null,
+    "timezone": "Asia/Singapore",
+    "referral_code": null,
+    "follow_up": null,
+    "disabled_at": null,
+    "email_verified_at": null,
+    "account": {
+      "id": "a8d52f96-e005-4ea4-82eb-38d97e5b04ba",
+      "id_account": 4,
+      "name": "Account C",
+      "business_type": "A - Agriculture, forestry and fishing",
+      "account_class": "standard",
+      "type": "company",
+      "partner_id": null,
+      "created_at": "2020-01-24T08:33:37.966",
+      "approved_at": null
+    },
+    "approved_at": null,
+    "status_code": "APPROVED",
+    "roles": [ "user" ],
+    "role": "user",
+    "last_active_client": {},
+    "clients": [],
+    "products": [ "web-app" ],
+    "isAdmin": 0,
+    "isDealer": 0,
+    "hasVa": 0,
+    "hasApp": 1,
+    "notification_method": "SMS",
+    "company_name": "Beier Inc",
+    "partner": null,
+    "current_client": null,
+    "mfa_status": { "login": { "status": "verified" } },
+    "current_login": "2020-01-24 08:34:26",
+    "last_active_time": 1579854867,
+    "screenings": [],
+    "permissions": {},
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3YWxsZXgudGVzdCtjMUBvdXRsb29rLmNvbSIsImlhdCI6MTU3OTg1NDg2N30=.Iwx_g3DM4WU2vPw6UlNJbh2ZgRhWgFFnTOu03hKbsew="
+  },
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3YWxsZXgudGVzdCtjMUBvdXRsb29rLmNvbSIsImlhdCI6MTU3OTg1NDg2N30=.Iwx_g3DM4WU2vPw6UlNJbh2ZgRhWgFFnTOu03hKbsew="
+}
+----------------------------------
+Conversions - Rates
+>>> request: 
+POST
+http://localhost:8080/api/conversions/rates
+body: 
+{
+  sell_currency: 'IDR',
+  buy_currency: 'SGD',
+  fixed_side: 'buy',
+  amount: 100
+}
+>>> response: 
+{
+  "settlement_cut_off_time": "2020-01-25T08:34:27.000Z",
+  "currency_pair": "SGDIDR",
+  "client_buy_currency": "SGD",
+  "client_sell_currency": "IDR",
+  "client_buy_amount": 100,
+  "client_sell_amount": 1007300,
+  "fixed_side": "buy",
+  "client_rate": 10073,
+  "mid_market_rate": 10063,
+  "wallex_fee_rate": 0.04447930110195572,
+  "wallex_fee": 44804,
+  "total_amount": 1052104,
+  "wallex_settlement_cut_off_time": "2020-01-25T08:34:27.000Z",
+  "rate_id": "6e13728a-21e8-4b0e-bc41-3b80ca90d8a5",
+  "expires_at": "2020-01-24T08:37:27.734Z",
+  "quote_uuid": "ebab57c6-32d3-4655-a616-de3699229b3e",
+  "conversion_date": "2020-01-27"
+}
+----------------------------------
+Conversions - Create
+>>> request: 
+POST
+http://localhost:8080/api/conversions/create
+body: 
+{
+  reason: 'Wallex Conversion - Postman - Fathoni',
+  reference_id: 'ABCDEFG-123456',
+  quote_uuid: 'ebab57c6-32d3-4655-a616-de3699229b3e'
+}
+>>> response: 
+{
+  "idconversions": 3,
+  "username": "wallex.test+c1@outlook.com",
+  "short_reference": "-",
+  "settlement_date": "2020-01-25T08:34:27.000Z",
+  "wallex_settlement_date": "2020-01-24T08:34:27.814Z",
+  "conversion_date": "2020-01-24T08:34:27.814Z",
+  "reference_id": "ABCDEFG-123456",
+  "currency_pair": "SGDIDR",
+  "buy_currency": "SGD",
+  "sell_currency": "IDR",
+  "fixed_side": "buy",
+  "client_buy_amount": 100,
+  "client_sell_amount": 1007300,
+  "total_amount": 1052104,
+  "client_rate": 10073,
+  "mid_market_rate": 0,
+  "market_rate": 0,
+  "market_buy_amount": 0,
+  "market_sell_amount": 0,
+  "wallex_fee_rate": 0.04447930110195572,
+  "idusers": 7,
+  "id_account": 4,
+  "rate_decimal_places": 0
+}
+----------------------------------
+Funding - Create
+>>> request: 
+POST
+http://localhost:8080/api/funding/create
+body: 
+{
+  amount: 100000,
+  funding_method: 'BANK_TRANSFER',
+  currency: 'IDR',
+  reference: 'POSTMAN',
+  bank_account_number: '2612630888'
+}
+>>> response: 
+{
+  "idfunding": 18,
+  "idusers": 7,
+  "id_account": 4,
+  "username": "wallex.test+c1@outlook.com",
+  "currency": "IDR",
+  "amount": 100000,
+  "transfer_date": null,
+  "completion_date": null,
+  "reference": "POSTMAN",
+  "bank_name": "BANK CENTRAL ASIA",
+  "bank_account_number": "2612630888",
+  "funding_method": "BANK_TRANSFER",
+  "status": "pending",
+  "creation_date": "2020-01-24T08:34:28.051",
+  "payment_incoming_date": null
+}
+>> idfunding:  18
+----------------------------------
+-- Login: wallex.test+d1@outlook.com
+>>> request: 
+POST
+http://localhost:8080/api/users/login
+body: 
+{ username: 'wallex.test+d1@outlook.com', password: 'Wallex$2019' }
+>>> response: 
+{
+  "user": {
+    "idusers": 9,
+    "id": "5eb46d3e-4fc4-4dbc-9c2b-add67bbbc259",
+    "id_account": 5,
+    "username": "wallex.test+d1@outlook.com",
+    "customer_ref": "200124-00009",
+    "email": "wallex.test+d1@outlook.com",
+    "status": "3",
+    "status_internal_code": "1100",
+    "first_name": "D1",
+    "last_name": "Account D",
+    "mobile_country_code": "+65",
+    "mobile_telephone": "98465682",
+    "country": "SG",
+    "last_login": null,
+    "last_logout": null,
+    "failed_attempts": 0,
+    "last_failed": null,
+    "language": "en",
+    "level": 2,
+    "origin": "wallex",
+    "department": null,
+    "timezone": "Asia/Singapore",
+    "referral_code": null,
+    "follow_up": null,
+    "disabled_at": null,
+    "email_verified_at": null,
+    "account": {
+      "id": "b95dd215-397b-4979-a2f3-d78998c08a8d",
+      "id_account": 5,
+      "name": "Account D",
+      "business_type": "A - Agriculture, forestry and fishing",
+      "account_class": "standard",
+      "type": "company",
+      "partner_id": null,
+      "created_at": "2020-01-24T08:33:38.177",
+      "approved_at": null
+    },
+    "approved_at": null,
+    "status_code": "APPROVED",
+    "roles": [ "user" ],
+    "role": "user",
+    "last_active_client": {},
+    "clients": [],
+    "products": [ "web-app" ],
+    "isAdmin": 0,
+    "isDealer": 0,
+    "hasVa": 0,
+    "hasApp": 1,
+    "notification_method": "SMS",
+    "company_name": "Sauer LLC",
+    "partner": null,
+    "current_client": null,
+    "mfa_status": { "login": { "status": "verified" } },
+    "current_login": "2020-01-24 08:34:28",
+    "last_active_time": 1579854868,
+    "screenings": [],
+    "permissions": {},
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3YWxsZXgudGVzdCtkMUBvdXRsb29rLmNvbSIsImlhdCI6MTU3OTg1NDg2OH0=.UwebPQQuynQYgwQqN8GAsMyYYjIECACKRxcRdTeksQU="
+  },
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3YWxsZXgudGVzdCtkMUBvdXRsb29rLmNvbSIsImlhdCI6MTU3OTg1NDg2OH0=.UwebPQQuynQYgwQqN8GAsMyYYjIECACKRxcRdTeksQU="
+}
+----------------------------------
+Conversions - Rates
+>>> request: 
+POST
+http://localhost:8080/api/conversions/rates
+body: 
+{
+  sell_currency: 'IDR',
+  buy_currency: 'SGD',
+  fixed_side: 'buy',
+  amount: 200
+}
+>>> response: 
+{
+  "settlement_cut_off_time": "2020-01-25T08:34:28.000Z",
+  "currency_pair": "SGDIDR",
+  "client_buy_currency": "SGD",
+  "client_sell_currency": "IDR",
+  "client_buy_amount": 200,
+  "client_sell_amount": 2014600,
+  "fixed_side": "buy",
+  "client_rate": 10073,
+  "mid_market_rate": 10063,
+  "wallex_fee_rate": 0.02223965055097786,
+  "wallex_fee": 44804,
+  "total_amount": 2059404,
+  "wallex_settlement_cut_off_time": "2020-01-25T08:34:28.000Z",
+  "rate_id": "1d03a07e-6db5-440c-a6db-e01a6fa3452a",
+  "expires_at": "2020-01-24T08:37:29.008Z",
+  "quote_uuid": "b1f7ba34-0568-49fb-bde5-58ee678e82a8",
+  "conversion_date": "2020-01-27"
+}
+----------------------------------
+Conversions - Create
+>>> request: 
+POST
+http://localhost:8080/api/conversions/create
+body: 
+{
+  reason: 'Wallex Conversion - Postman - Fathoni',
+  reference_id: 'ABCDEFG-123456',
+  quote_uuid: 'b1f7ba34-0568-49fb-bde5-58ee678e82a8'
+}
+>>> response: 
+{
+  "idconversions": 4,
+  "username": "wallex.test+d1@outlook.com",
+  "short_reference": "-",
+  "settlement_date": "2020-01-25T08:34:28.000Z",
+  "wallex_settlement_date": "2020-01-24T08:34:29.094Z",
+  "conversion_date": "2020-01-24T08:34:29.094Z",
+  "reference_id": "ABCDEFG-123456",
+  "currency_pair": "SGDIDR",
+  "buy_currency": "SGD",
+  "sell_currency": "IDR",
+  "fixed_side": "buy",
+  "client_buy_amount": 200,
+  "client_sell_amount": 2014600,
+  "total_amount": 2059404,
+  "client_rate": 10073,
+  "mid_market_rate": 0,
+  "market_rate": 0,
+  "market_buy_amount": 0,
+  "market_sell_amount": 0,
+  "wallex_fee_rate": 0.02223965055097786,
+  "idusers": 9,
+  "id_account": 5,
+  "rate_decimal_places": 0
+}
+----------------------------------
+Conversions - Rates 2
+>>> request: 
+POST
+http://localhost:8080/api/conversions/rates
+body: 
+{
+  sell_currency: 'IDR',
+  buy_currency: 'SGD',
+  fixed_side: 'buy',
+  amount: 300
+}
+>>> response: 
+{
+  "settlement_cut_off_time": "2020-01-25T08:34:29.000Z",
+  "currency_pair": "SGDIDR",
+  "client_buy_currency": "SGD",
+  "client_sell_currency": "IDR",
+  "client_buy_amount": 300,
+  "client_sell_amount": 3021900,
+  "fixed_side": "buy",
+  "client_rate": 10073,
+  "mid_market_rate": 10063,
+  "wallex_fee_rate": 0.014826433700651908,
+  "wallex_fee": 44804,
+  "total_amount": 3066704,
+  "wallex_settlement_cut_off_time": "2020-01-25T08:34:29.000Z",
+  "rate_id": "9bda78b3-bcfe-4175-bae0-18b562cf21e0",
+  "expires_at": "2020-01-24T08:37:29.894Z",
+  "quote_uuid": "3d0bd2b2-8002-40a6-9fe4-057974b6a234",
+  "conversion_date": "2020-01-27"
+}
+----------------------------------
+Conversions - Create 2
+>>> request: 
+POST
+http://localhost:8080/api/conversions/create
+body: 
+{
+  reason: 'Wallex Conversion - Postman - Fathoni',
+  reference_id: 'ABCDEFG-123456',
+  quote_uuid: '3d0bd2b2-8002-40a6-9fe4-057974b6a234'
+}
+>>> response: 
+{
+  "idconversions": 5,
+  "username": "wallex.test+d1@outlook.com",
+  "short_reference": "-",
+  "settlement_date": "2020-01-25T08:34:29.000Z",
+  "wallex_settlement_date": "2020-01-24T08:34:29.988Z",
+  "conversion_date": "2020-01-24T08:34:29.988Z",
+  "reference_id": "ABCDEFG-123456",
+  "currency_pair": "SGDIDR",
+  "buy_currency": "SGD",
+  "sell_currency": "IDR",
+  "fixed_side": "buy",
+  "client_buy_amount": 300,
+  "client_sell_amount": 3021900,
+  "total_amount": 3066704,
+  "client_rate": 10073,
+  "mid_market_rate": 0,
+  "market_rate": 0,
+  "market_buy_amount": 0,
+  "market_sell_amount": 0,
+  "wallex_fee_rate": 0.014826433700651908,
+  "idusers": 9,
+  "id_account": 5,
+  "rate_decimal_places": 0
+}
+----------------------------------
+Funding - Create
+>>> request: 
+POST
+http://localhost:8080/api/funding/create
+body: 
+{
+  amount: '5126108',
+  funding_method: 'BANK_TRANSFER',
+  currency: 'IDR',
+  reference: 'POSTMAN',
+  bank_account_number: '2612630888'
+}
+>>> response: 
+{
+  "idfunding": 19,
+  "idusers": 9,
+  "id_account": 5,
+  "username": "wallex.test+d1@outlook.com",
+  "currency": "IDR",
+  "amount": 5126108,
+  "transfer_date": null,
+  "completion_date": null,
+  "reference": "POSTMAN",
+  "bank_name": "BANK CENTRAL ASIA",
+  "bank_account_number": "2612630888",
+  "funding_method": "BANK_TRANSFER",
+  "status": "pending",
+  "creation_date": "2020-01-24T08:34:30.155",
+  "payment_incoming_date": null
+}
+>> idfunding:  19
+----------------------------------
+seeding success
+TRANSACTION_FUNDING_IDS:  [ '16', '17', '18', '19' ]
+parametersForTestRun1.environment:  {
+  id: 'f47e7dc0-01e2-4e0a-9594-8e3dee1dd0fd',
+  name: 'Wallex Burhan - Local P1',
+  values: [
+    { key: 'ADDR', value: 'http://localhost:8080', enabled: true },
+    { key: 'TRANSACTION_FUNDING_ID', value: '16', enabled: true },
+    {
+      key: 'key',
+      value: '23c103c001c711e999ce065f88b5bfa2',
+      enabled: true
+    },
+    {
+      key: 'secret',
+      value: '3E567065103FA171F10156BE6BE1366078FC881C05AC03697C5047235875F170',
+      enabled: true
+    },
+    {
+      key: 'graphql_url',
+      value: 'http://localhost:8080/graphql',
+      enabled: true
+    },
+    { key: 'TRANSACTION_ID', value: '19', enabled: true },
+    { key: 'CONVERSION_ID', value: '2', enabled: true },
+    { key: 'CONVERSION_TOTAL_AMOUNT', value: '1060836', enabled: true },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNT1',
+      value: '2072298',
+      enabled: true
+    },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNT2',
+      value: '3085898',
+      enabled: true
+    },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNTS',
+      value: '5158196',
+      enabled: true
+    },
+    { key: 'CONVERSION_ID2', value: '2', enabled: true }
+  ],
+  _postman_variable_scope: 'environment',
+  _postman_exported_at: '2020-01-24T08:21:41.769Z',
+  _postman_exported_using: 'Postman/7.16.0'
+}
+parametersForTestRun2.environment:  {
+  id: '58666523-6285-402e-83e8-20e9a8dc38d1',
+  name: 'Wallex Burhan - Local P2',
+  values: [
+    { key: 'ADDR', value: 'http://localhost:8080', enabled: true },
+    { key: 'TRANSACTION_FUNDING_ID', value: '17', enabled: true },
+    {
+      key: 'key',
+      value: '23c103c001c711e999ce065f88b5bfa2',
+      enabled: true
+    },
+    {
+      key: 'secret',
+      value: '3E567065103FA171F10156BE6BE1366078FC881C05AC03697C5047235875F170',
+      enabled: true
+    },
+    {
+      key: 'graphql_url',
+      value: 'http://localhost:8080/graphql',
+      enabled: true
+    },
+    { key: 'TRANSACTION_ID', value: '19', enabled: true },
+    { key: 'CONVERSION_ID', value: '2', enabled: true },
+    { key: 'CONVERSION_TOTAL_AMOUNT', value: '1060836', enabled: true },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNT1',
+      value: '2072298',
+      enabled: true
+    },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNT2',
+      value: '3085898',
+      enabled: true
+    },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNTS',
+      value: '5158196',
+      enabled: true
+    },
+    { key: 'CONVERSION_ID2', value: '2', enabled: true }
+  ],
+  _postman_variable_scope: 'environment',
+  _postman_exported_at: '2020-01-24T08:22:01.581Z',
+  _postman_exported_using: 'Postman/7.16.0'
+}
+parametersForTestRun3.environment:  {
+  id: '634700c6-62db-48c9-b06c-2fcb6da7a79c',
+  name: 'Wallex Burhan - Local P3',
+  values: [
+    { key: 'ADDR', value: 'http://localhost:8080', enabled: true },
+    { key: 'TRANSACTION_FUNDING_ID', value: '18', enabled: true },
+    {
+      key: 'key',
+      value: '23c103c001c711e999ce065f88b5bfa2',
+      enabled: true
+    },
+    {
+      key: 'secret',
+      value: '3E567065103FA171F10156BE6BE1366078FC881C05AC03697C5047235875F170',
+      enabled: true
+    },
+    {
+      key: 'graphql_url',
+      value: 'http://localhost:8080/graphql',
+      enabled: true
+    },
+    { key: 'TRANSACTION_ID', value: '19', enabled: true },
+    { key: 'CONVERSION_ID', value: '2', enabled: true },
+    { key: 'CONVERSION_TOTAL_AMOUNT', value: '1060836', enabled: true },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNT1',
+      value: '2072298',
+      enabled: true
+    },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNT2',
+      value: '3085898',
+      enabled: true
+    },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNTS',
+      value: '5158196',
+      enabled: true
+    },
+    { key: 'CONVERSION_ID2', value: '2', enabled: true }
+  ],
+  _postman_variable_scope: 'environment',
+  _postman_exported_at: '2020-01-24T08:22:25.970Z',
+  _postman_exported_using: 'Postman/7.16.0'
+}
+parametersForTestRun4.environment:  {
+  id: '7f439e76-a10e-436b-9c6b-3d82a9978976',
+  name: 'Wallex Burhan - Local P4',
+  values: [
+    { key: 'ADDR', value: 'http://localhost:8080', enabled: true },
+    { key: 'TRANSACTION_FUNDING_ID', value: '19', enabled: true },
+    {
+      key: 'key',
+      value: '23c103c001c711e999ce065f88b5bfa2',
+      enabled: true
+    },
+    {
+      key: 'secret',
+      value: '3E567065103FA171F10156BE6BE1366078FC881C05AC03697C5047235875F170',
+      enabled: true
+    },
+    {
+      key: 'graphql_url',
+      value: 'http://localhost:8080/graphql',
+      enabled: true
+    },
+    { key: 'TRANSACTION_ID', value: '19', enabled: true },
+    { key: 'CONVERSION_ID', value: '2', enabled: true },
+    { key: 'CONVERSION_TOTAL_AMOUNT', value: '1060836', enabled: true },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNT1',
+      value: '2072298',
+      enabled: true
+    },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNT2',
+      value: '3085898',
+      enabled: true
+    },
+    {
+      key: 'CONVERSION_TOTAL_AMOUNTS',
+      value: '5158196',
+      enabled: true
+    },
+    { key: 'CONVERSION_ID2', value: '2', enabled: true }
+  ],
+  _postman_variable_scope: 'environment',
+  _postman_exported_at: '2020-01-24T08:22:50.973Z',
+  _postman_exported_using: 'Postman/7.16.0'
+}
+newman
+
+Seq Funding Accept v2 - 2 - 1 - Accept
+newman
+
+Seq Funding Accept v2 - 2 - Accept
+newman
+
+Seq Funding Accept v2 - 3 - Accept
+newman
+
+Seq Funding Accept v2 - 4 - Accept
+
+❏ Funding Accept 1 - Funding >
+↳ -- Login: vito+admin@wallextech.com
+
+❏ Funding Accept 2 - Funding =
+↳ -- Login: vito+admin@wallextech.com
+
+❏ Funding Accept 3 - Funding <
+↳ -- Login: vito+admin@wallextech.com
+
+❏ Funding Accept 4 - 2 Conv - Funding = 
+↳ -- Login: vito+admin@wallextech.com
+  POST http://localhost:8080/api/users/login   POST http://localhost:8080/api/users/login   POST http://localhost:8080/api/users/login   POST http://localhost:8080/api/users/login [200 OK, 1.94KB, 208ms]
+[200 OK, 1.94KB, 295ms]
+[200 OK, 1.94KB, 298ms]
+[200 OK, 1.94KB, 288ms]
+
+↳ admin transactions - list
+
+↳ admin transactions - list
+
+↳ admin transactions - list
+
+↳ admin transactions - list
+  POST http://localhost:8080/admin/api/transactions/list   POST http://localhost:8080/admin/api/transactions/list   POST http://localhost:8080/admin/api/transactions/list   POST http://localhost:8080/admin/api/transactions/list [200 OK, 986B, 90ms]
+[200 OK, 986B, 134ms]
+[200 OK, 984B, 127ms]
+[200 OK, 986B, 123ms]
+
+↳ Transactions - Accept
+
+↳ Transactions - Accept
+
+↳ Transactions - Accept
+
+↳ Transactions - Accept
+  PUT http://localhost:8080/admin/api/transactions/accept   PUT http://localhost:8080/admin/api/transactions/accept   PUT http://localhost:8080/admin/api/transactions/accept   PUT http://localhost:8080/admin/api/transactions/accept [200 OK, 1.05KB, 390ms]
+
+↳ admin transactions - list
+  POST http://localhost:8080/admin/api/transactions/list [200 OK, 1.05KB, 541ms]
+[200 OK, 1.6KB, 175ms]
+
+↳ admin transactions - list
+[200 OK, 1.05KB, 759ms]
+
+┌─────────────────────────┬────────────────────┬────────────────────┐
+│                         │           executed │             failed │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              iterations │                  1 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│                requests │                  4 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│            test-scripts │                 11 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│      prerequest-scripts │                  8 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              assertions │                  0 │                  0 │
+├─────────────────────────┴────────────────────┴────────────────────┤
+│ total run duration: 1932ms                                        │
+├───────────────────────────────────────────────────────────────────┤
+│ total data received: 4.5KB (approx)                               │
+├───────────────────────────────────────────────────────────────────┤
+│ average response time: 237ms [min: 90ms, max: 390ms, s.d.: 114ms] │
+└───────────────────────────────────────────────────────────────────┘
+[200 OK, 1.05KB, 784ms]
+  POST http://localhost:8080/admin/api/transactions/list  
+↳ admin transactions - list
+[200 OK, 1.6KB, 84ms]
+
+↳ admin transactions - list
+  POST http://localhost:8080/admin/api/transactions/list  
+┌─────────────────────────┬────────────────────┬────────────────────┐
+│                         │           executed │             failed │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              iterations │                  1 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│                requests │                  4 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│            test-scripts │                 11 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│      prerequest-scripts │                  8 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              assertions │                  0 │                  0 │
+├─────────────────────────┴────────────────────┴────────────────────┤
+│ total run duration: 2.3s                                          │
+├───────────────────────────────────────────────────────────────────┤
+│ total data received: 4.5KB (approx)                               │
+├───────────────────────────────────────────────────────────────────┤
+│ average response time: 241ms [min: 84ms, max: 541ms, s.d.: 178ms] │
+└───────────────────────────────────────────────────────────────────┘
+  POST http://localhost:8080/admin/api/transactions/list [200 OK, 1.6KB, 38ms]
+[200 OK, 1.6KB, 69ms]
+
+┌─────────────────────────┬────────────────────┬────────────────────┐
+│                         │           executed │             failed │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              iterations │                  1 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│                requests │                  4 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│            test-scripts │                 11 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│      prerequest-scripts │                  8 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              assertions │                  0 │                  0 │
+├─────────────────────────┴────────────────────┴────────────────────┤
+│ total run duration: 2.1s                                          │
+├───────────────────────────────────────────────────────────────────┤
+│ total data received: 4.5KB (approx)                               │
+├───────────────────────────────────────────────────────────────────┤
+│ average response time: 305ms [min: 38ms, max: 759ms, s.d.: 278ms] │
+└───────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────┬────────────────────┬────────────────────┐
+│                         │           executed │             failed │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              iterations │                  1 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│                requests │                  4 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│            test-scripts │                 11 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│      prerequest-scripts │                  8 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              assertions │                  0 │                  0 │
+├─────────────────────────┴────────────────────┴────────────────────┤
+│ total run duration: 1928ms                                        │
+├───────────────────────────────────────────────────────────────────┤
+│ total data received: 4.5KB (approx)                               │
+├───────────────────────────────────────────────────────────────────┤
+│ average response time: 316ms [min: 69ms, max: 784ms, s.d.: 281ms] │
+└───────────────────────────────────────────────────────────────────┘
+-- Login: vito+admin@wallextech.com
+>>> request: 
+POST
+http://localhost:8080/api/users/login
+body: 
+{
+  username: 'vito+admin@wallextech.com',
+  password: 'Wallex$2019',
+  action: 'login_admin'
+}
+>>> response: 
+{
+  "user": {
+    "idusers": 1,
+    "id": "e96e21a3-9770-48ee-a11f-bc0b19801f5b",
+    "id_account": 1,
+    "username": "vito+admin@wallextech.com",
+    "customer_ref": "200124-00001",
+    "email": "vito+admin@wallextech.com",
+    "status": "3",
+    "status_internal_code": "1100",
+    "first_name": "Admin",
+    "last_name": "Wallex",
+    "mobile_country_code": "+65",
+    "mobile_telephone": "98465682",
+    "country": "SG",
+    "last_login": null,
+    "last_logout": null,
+    "failed_attempts": 0,
+    "last_failed": null,
+    "language": "en",
+    "level": 2,
+    "origin": "wallex",
+    "department": "directors",
+    "timezone": "Asia/Singapore",
+    "referral_code": null,
+    "follow_up": null,
+    "disabled_at": null,
+    "email_verified_at": null,
+    "account": {
+      "id": "bfbb8270-68e4-4e89-a639-bc6cfeabb1a6",
+      "id_account": 1,
+      "name": "Wallex Technologies Pte Ltd",
+      "business_type": "A - Agriculture, forestry and fishing",
+      "account_class": "standard",
+      "type": "company",
+      "partner_id": null,
+      "created_at": "2020-01-24T08:33:36.472",
+      "approved_at": null
+    },
+    "approved_at": null,
+    "status_code": "APPROVED",
+    "roles": [ "user", "admin" ],
+    "role": "admin",
+    "last_active_client": {},
+    "clients": [],
+    "products": [ "web-app" ],
+    "isAdmin": 0,
+    "isDealer": 0,
+    "hasVa": 0,
+    "hasApp": 1,
+    "notification_method": "SMS",
+    "company_name": "Brown, Hagenes and Erdman",
+    "partner": null,
+    "current_client": null,
+    "mfa_status": { "login": { "status": "verified" } },
+    "current_login": "2020-01-24 08:34:31",
+    "last_active_time": 1579854871,
+    "screenings": [],
+    "permissions": { "settlement": [ "approve", "reject", "view", "list", "update" ] },
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aXRvK2FkbWluQHdhbGxleHRlY2guY29tIiwiaWF0IjoxNTc5ODU0ODcxfQ==.50AiAd1Xqp0kSKi09jTadWW-j4KcPlVVaq7XIynIczw="
+  },
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aXRvK2FkbWluQHdhbGxleHRlY2guY29tIiwiaWF0IjoxNTc5ODU0ODcxfQ==.50AiAd1Xqp0kSKi09jTadWW-j4KcPlVVaq7XIynIczw="
+}
+----------------------------------
+admin transactions - list
+>>> request: 
+POST
+http://localhost:8080/admin/api/transactions/list
+body: 
+{ related_entity_type: 'funding', related_entity_id: '16' }
+>>> response: 
+{
+  "data": [
+    {
+      "idtransactions": 18,
+      "id": "f59d7602-748f-4828-9977-095f7ea4f36f",
+      "amount": 1200000,
+      "balance": 0,
+      "currency": "IDR",
+      "balance_id": "ecafe274-fd36-4813-af76-2a534a0b48a7",
+      "reference": "POSTMAN",
+      "wallex_ref": "200124-FUN-F59D7602",
+      "status": "pending",
+      "type": "credit",
+      "settle_date": null,
+      "creation_date": "2020-01-24T08:34:25.460",
+      "updated_date": "2020-01-24T08:34:25.478",
+      "completion_date": null,
+      "related_entity_type": "funding",
+      "related_entity_id": 16,
+      "related_entity_reference": "POSTMAN",
+      "username": "wallex.test+a1@outlook.com",
+      "idusers": 3,
+      "id_account": 2,
+      "wallex_fee": 0,
+      "total_amount": 1200000,
+      "owner_name": "A1 Account A"
+    }
+  ],
+  "pagination": {
+    "item_count": 1,
+    "page": 1,
+    "per_page": 10000,
+    "search": [],
+    "total_entries": 1,
+    "total_pages": 1
+  }
+}
+----------------------------------
+Transactions - Accept
+>>> request: 
+PUT
+http://localhost:8080/admin/api/transactions/accept
+body: 
+{ idtransactions: '18' }
+>>> response: 
+{
+  "id": "f59d7602-748f-4828-9977-095f7ea4f36f",
+  "accountId": "e2b90210-defb-456b-96de-66db5613b324",
+  "createdAt": "2020-01-24T08:34:25.460Z",
+  "updatedAt": "2020-01-24T08:34:31.975Z",
+  "createdBy": "7ad31332-d4ac-49e9-ad13-aba2a23673dd",
+  "updatedBy": "e96e21a3-9770-48ee-a11f-bc0b19801f5b",
+  "historyIncluded": true,
+  "transactionIntId": 18,
+  "amount": 1200000,
+  "currencyId": "IDR",
+  "balance": 0,
+  "balanceId": "ecafe274-fd36-4813-af76-2a534a0b48a7",
+  "balanceIntId": 8,
+  "ref": "POSTMAN",
+  "wallexRef": "200124-FUN-F59D7602",
+  "status": "completed",
+  "type": "credit",
+  "completedAt": "2020-01-24T08:34:31.965Z",
+  "domain": "funding",
+  "domainId": "02f4747a-95fc-4cc1-88b3-2ede1662ac5c",
+  "domainIntId": 16,
+  "domainRef": "POSTMAN",
+  "username": "wallex.test+a1@outlook.com",
+  "userIntId": 3,
+  "accountIntId": 2,
+  "wallexFee": 0,
+  "totalAmount": 1200000,
+  "ownerName": "A1 Account A"
+}
+----------------------------------
+admin transactions - list
+>>> request: 
+POST
+http://localhost:8080/admin/api/transactions/list
+body: 
+{ related_entity_type: 'conversion', related_entity_id: '2' }
+>>> response: 
+{
+  "data": [
+    {
+      "idtransactions": 19,
+      "id": "038a90b0-8d9c-47a4-b3d0-cab120a3d0f8",
+      "amount": 1007300,
+      "balance": 0,
+      "currency": "IDR",
+      "balance_id": "06719010-73bf-4e7a-abb6-03b66ee8bdc8",
+      "reference": "-",
+      "wallex_ref": "200124-CON-038A90B0",
+      "status": "pending",
+      "type": "debit",
+      "settle_date": "2020-01-25T08:34:27.000",
+      "creation_date": "2020-01-24T08:34:26.640",
+      "updated_date": "2020-01-24T08:34:31.993",
+      "completion_date": null,
+      "related_entity_type": "conversion",
+      "related_entity_id": 2,
+      "related_entity_reference": "20200124-MCCJQK",
+      "username": "wallex.test+b1@outlook.com",
+      "idusers": 5,
+      "id_account": 3,
+      "wallex_fee": 44804,
+      "total_amount": 1052104,
+      "owner_name": "B1 Account B"
+    },
+    {
+      "idtransactions": 20,
+      "id": "b77e84c7-304e-41cd-9f9c-5a989e4d08ca",
+      "amount": 100,
+      "balance": 0,
+      "currency": "SGD",
+      "balance_id": "2d63c755-8228-4731-986f-956d5bd8fcfa",
+      "reference": "-",
+      "wallex_ref": "200124-CON-B77E84C7",
+      "status": "pending",
+      "type": "credit",
+      "settle_date": "2020-01-25T08:34:27.000",
+      "creation_date": "2020-01-24T08:34:26.672",
+      "updated_date": "2020-01-24T08:34:32.001",
+      "completion_date": null,
+      "related_entity_type": "conversion",
+      "related_entity_id": 2,
+      "related_entity_reference": "20200124-MCCJQK",
+      "username": "wallex.test+b1@outlook.com",
+      "idusers": 5,
+      "id_account": 3,
+      "wallex_fee": 0,
+      "total_amount": 100,
+      "owner_name": "B1 Account B"
+    }
+  ],
+  "pagination": {
+    "item_count": 2,
+    "page": 1,
+    "per_page": 10000,
+    "search": [],
+    "total_entries": 2,
+    "total_pages": 1
+  }
+}
+----------------------------------
+Seq Funding Accept v2 - 2 - 1 - Accept ran successfully.
+-- Login: vito+admin@wallextech.com
+>>> request: 
+POST
+http://localhost:8080/api/users/login
+body: 
+{
+  username: 'vito+admin@wallextech.com',
+  password: 'Wallex$2019',
+  action: 'login_admin'
+}
+>>> response: 
+{
+  "user": {
+    "idusers": 1,
+    "id": "e96e21a3-9770-48ee-a11f-bc0b19801f5b",
+    "id_account": 1,
+    "username": "vito+admin@wallextech.com",
+    "customer_ref": "200124-00001",
+    "email": "vito+admin@wallextech.com",
+    "status": "3",
+    "status_internal_code": "1100",
+    "first_name": "Admin",
+    "last_name": "Wallex",
+    "mobile_country_code": "+65",
+    "mobile_telephone": "98465682",
+    "country": "SG",
+    "last_login": null,
+    "last_logout": null,
+    "failed_attempts": 0,
+    "last_failed": null,
+    "language": "en",
+    "level": 2,
+    "origin": "wallex",
+    "department": "directors",
+    "timezone": "Asia/Singapore",
+    "referral_code": null,
+    "follow_up": null,
+    "disabled_at": null,
+    "email_verified_at": null,
+    "account": {
+      "id": "bfbb8270-68e4-4e89-a639-bc6cfeabb1a6",
+      "id_account": 1,
+      "name": "Wallex Technologies Pte Ltd",
+      "business_type": "A - Agriculture, forestry and fishing",
+      "account_class": "standard",
+      "type": "company",
+      "partner_id": null,
+      "created_at": "2020-01-24T08:33:36.472",
+      "approved_at": null
+    },
+    "approved_at": null,
+    "status_code": "APPROVED",
+    "roles": [ "user", "admin" ],
+    "role": "admin",
+    "last_active_client": {},
+    "clients": [],
+    "products": [ "web-app" ],
+    "isAdmin": 0,
+    "isDealer": 0,
+    "hasVa": 0,
+    "hasApp": 1,
+    "notification_method": "SMS",
+    "company_name": "Brown, Hagenes and Erdman",
+    "partner": null,
+    "current_client": null,
+    "mfa_status": { "login": { "status": "verified" } },
+    "current_login": "2020-01-24 08:34:31",
+    "last_active_time": 1579854871,
+    "screenings": [],
+    "permissions": { "settlement": [ "approve", "reject", "view", "list", "update" ] },
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aXRvK2FkbWluQHdhbGxleHRlY2guY29tIiwiaWF0IjoxNTc5ODU0ODcxfQ==.50AiAd1Xqp0kSKi09jTadWW-j4KcPlVVaq7XIynIczw="
+  },
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aXRvK2FkbWluQHdhbGxleHRlY2guY29tIiwiaWF0IjoxNTc5ODU0ODcxfQ==.50AiAd1Xqp0kSKi09jTadWW-j4KcPlVVaq7XIynIczw="
+}
+----------------------------------
+admin transactions - list
+>>> request: 
+POST
+http://localhost:8080/admin/api/transactions/list
+body: 
+{ related_entity_type: 'funding', related_entity_id: '17' }
+>>> response: 
+{
+  "data": [
+    {
+      "idtransactions": 21,
+      "id": "b3c42458-eb6a-4ae7-a18f-8bdb3ee8d3e7",
+      "amount": 1052104,
+      "balance": 0,
+      "currency": "IDR",
+      "balance_id": "06719010-73bf-4e7a-abb6-03b66ee8bdc8",
+      "reference": "POSTMAN",
+      "wallex_ref": "200124-FUN-B3C42458",
+      "status": "pending",
+      "type": "credit",
+      "settle_date": null,
+      "creation_date": "2020-01-24T08:34:26.839",
+      "updated_date": "2020-01-24T08:34:26.851",
+      "completion_date": null,
+      "related_entity_type": "funding",
+      "related_entity_id": 17,
+      "related_entity_reference": "POSTMAN",
+      "username": "wallex.test+b1@outlook.com",
+      "idusers": 5,
+      "id_account": 3,
+      "wallex_fee": 0,
+      "total_amount": 1052104,
+      "owner_name": "B1 Account B"
+    }
+  ],
+  "pagination": {
+    "item_count": 1,
+    "page": 1,
+    "per_page": 10000,
+    "search": [],
+    "total_entries": 1,
+    "total_pages": 1
+  }
+}
+----------------------------------
+Transactions - Accept
+>>> request: 
+PUT
+http://localhost:8080/admin/api/transactions/accept
+body: 
+{ idtransactions: '21' }
+>>> response: 
+{
+  "id": "b3c42458-eb6a-4ae7-a18f-8bdb3ee8d3e7",
+  "accountId": "79174e3c-b8cb-452b-af1f-b43fad91f0ef",
+  "createdAt": "2020-01-24T08:34:26.839Z",
+  "updatedAt": "2020-01-24T08:34:31.896Z",
+  "createdBy": "0a906f2f-181b-42ab-8bc6-3380b639b46e",
+  "updatedBy": "e96e21a3-9770-48ee-a11f-bc0b19801f5b",
+  "historyIncluded": true,
+  "transactionIntId": 21,
+  "amount": 1052104,
+  "currencyId": "IDR",
+  "balance": 0,
+  "balanceId": "06719010-73bf-4e7a-abb6-03b66ee8bdc8",
+  "balanceIntId": 4,
+  "ref": "POSTMAN",
+  "wallexRef": "200124-FUN-B3C42458",
+  "status": "completed",
+  "type": "credit",
+  "completedAt": "2020-01-24T08:34:31.889Z",
+  "domain": "funding",
+  "domainId": "f488cdcb-6f77-4283-a85c-a649d8e158c5",
+  "domainIntId": 17,
+  "domainRef": "POSTMAN",
+  "username": "wallex.test+b1@outlook.com",
+  "userIntId": 5,
+  "accountIntId": 3,
+  "wallexFee": 0,
+  "totalAmount": 1052104,
+  "ownerName": "B1 Account B"
+}
+----------------------------------
+admin transactions - list
+>>> request: 
+POST
+http://localhost:8080/admin/api/transactions/list
+body: 
+{ related_entity_type: 'conversion', related_entity_id: '2' }
+>>> response: 
+{
+  "data": [
+    {
+      "idtransactions": 19,
+      "id": "038a90b0-8d9c-47a4-b3d0-cab120a3d0f8",
+      "amount": 1007300,
+      "balance": 0,
+      "currency": "IDR",
+      "balance_id": "06719010-73bf-4e7a-abb6-03b66ee8bdc8",
+      "reference": "-",
+      "wallex_ref": "200124-CON-038A90B0",
+      "status": "pending",
+      "type": "debit",
+      "settle_date": "2020-01-25T08:34:27.000",
+      "creation_date": "2020-01-24T08:34:26.640",
+      "updated_date": "2020-01-24T08:34:31.993",
+      "completion_date": null,
+      "related_entity_type": "conversion",
+      "related_entity_id": 2,
+      "related_entity_reference": "20200124-MCCJQK",
+      "username": "wallex.test+b1@outlook.com",
+      "idusers": 5,
+      "id_account": 3,
+      "wallex_fee": 44804,
+      "total_amount": 1052104,
+      "owner_name": "B1 Account B"
+    },
+    {
+      "idtransactions": 20,
+      "id": "b77e84c7-304e-41cd-9f9c-5a989e4d08ca",
+      "amount": 100,
+      "balance": 0,
+      "currency": "SGD",
+      "balance_id": "2d63c755-8228-4731-986f-956d5bd8fcfa",
+      "reference": "-",
+      "wallex_ref": "200124-CON-B77E84C7",
+      "status": "pending",
+      "type": "credit",
+      "settle_date": "2020-01-25T08:34:27.000",
+      "creation_date": "2020-01-24T08:34:26.672",
+      "updated_date": "2020-01-24T08:34:32.001",
+      "completion_date": null,
+      "related_entity_type": "conversion",
+      "related_entity_id": 2,
+      "related_entity_reference": "20200124-MCCJQK",
+      "username": "wallex.test+b1@outlook.com",
+      "idusers": 5,
+      "id_account": 3,
+      "wallex_fee": 0,
+      "total_amount": 100,
+      "owner_name": "B1 Account B"
+    }
+  ],
+  "pagination": {
+    "item_count": 2,
+    "page": 1,
+    "per_page": 10000,
+    "search": [],
+    "total_entries": 2,
+    "total_pages": 1
+  }
+}
+----------------------------------
+Seq Funding Accept v2 - 2 - Accept ran successfully.
+-- Login: vito+admin@wallextech.com
+>>> request: 
+POST
+http://localhost:8080/api/users/login
+body: 
+{
+  username: 'vito+admin@wallextech.com',
+  password: 'Wallex$2019',
+  action: 'login_admin'
+}
+>>> response: 
+{
+  "user": {
+    "idusers": 1,
+    "id": "e96e21a3-9770-48ee-a11f-bc0b19801f5b",
+    "id_account": 1,
+    "username": "vito+admin@wallextech.com",
+    "customer_ref": "200124-00001",
+    "email": "vito+admin@wallextech.com",
+    "status": "3",
+    "status_internal_code": "1100",
+    "first_name": "Admin",
+    "last_name": "Wallex",
+    "mobile_country_code": "+65",
+    "mobile_telephone": "98465682",
+    "country": "SG",
+    "last_login": null,
+    "last_logout": null,
+    "failed_attempts": 0,
+    "last_failed": null,
+    "language": "en",
+    "level": 2,
+    "origin": "wallex",
+    "department": "directors",
+    "timezone": "Asia/Singapore",
+    "referral_code": null,
+    "follow_up": null,
+    "disabled_at": null,
+    "email_verified_at": null,
+    "account": {
+      "id": "bfbb8270-68e4-4e89-a639-bc6cfeabb1a6",
+      "id_account": 1,
+      "name": "Wallex Technologies Pte Ltd",
+      "business_type": "A - Agriculture, forestry and fishing",
+      "account_class": "standard",
+      "type": "company",
+      "partner_id": null,
+      "created_at": "2020-01-24T08:33:36.472",
+      "approved_at": null
+    },
+    "approved_at": null,
+    "status_code": "APPROVED",
+    "roles": [ "user", "admin" ],
+    "role": "admin",
+    "last_active_client": {},
+    "clients": [],
+    "products": [ "web-app" ],
+    "isAdmin": 0,
+    "isDealer": 0,
+    "hasVa": 0,
+    "hasApp": 1,
+    "notification_method": "SMS",
+    "company_name": "Brown, Hagenes and Erdman",
+    "partner": null,
+    "current_client": null,
+    "mfa_status": { "login": { "status": "verified" } },
+    "current_login": "2020-01-24 08:34:31",
+    "last_active_time": 1579854871,
+    "screenings": [],
+    "permissions": { "settlement": [ "approve", "reject", "view", "list", "update" ] },
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aXRvK2FkbWluQHdhbGxleHRlY2guY29tIiwiaWF0IjoxNTc5ODU0ODcxfQ==.50AiAd1Xqp0kSKi09jTadWW-j4KcPlVVaq7XIynIczw="
+  },
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aXRvK2FkbWluQHdhbGxleHRlY2guY29tIiwiaWF0IjoxNTc5ODU0ODcxfQ==.50AiAd1Xqp0kSKi09jTadWW-j4KcPlVVaq7XIynIczw="
+}
+----------------------------------
+admin transactions - list
+>>> request: 
+POST
+http://localhost:8080/admin/api/transactions/list
+body: 
+{ related_entity_type: 'funding', related_entity_id: '18' }
+>>> response: 
+{
+  "data": [
+    {
+      "idtransactions": 24,
+      "id": "476228e1-7cf8-4334-9801-5be7201f29ba",
+      "amount": 100000,
+      "balance": 0,
+      "currency": "IDR",
+      "balance_id": "732c59e9-707c-40f3-b83e-c8202d640455",
+      "reference": "POSTMAN",
+      "wallex_ref": "200124-FUN-476228E1",
+      "status": "pending",
+      "type": "credit",
+      "settle_date": null,
+      "creation_date": "2020-01-24T08:34:28.068",
+      "updated_date": "2020-01-24T08:34:28.084",
+      "completion_date": null,
+      "related_entity_type": "funding",
+      "related_entity_id": 18,
+      "related_entity_reference": "POSTMAN",
+      "username": "wallex.test+c1@outlook.com",
+      "idusers": 7,
+      "id_account": 4,
+      "wallex_fee": 0,
+      "total_amount": 100000,
+      "owner_name": "C1 Account C"
+    }
+  ],
+  "pagination": {
+    "item_count": 1,
+    "page": 1,
+    "per_page": 10000,
+    "search": [],
+    "total_entries": 1,
+    "total_pages": 1
+  }
+}
+----------------------------------
+Transactions - Accept
+>>> request: 
+PUT
+http://localhost:8080/admin/api/transactions/accept
+body: 
+{ idtransactions: '24' }
+>>> response: 
+{
+  "id": "476228e1-7cf8-4334-9801-5be7201f29ba",
+  "accountId": "a8d52f96-e005-4ea4-82eb-38d97e5b04ba",
+  "createdAt": "2020-01-24T08:34:28.068Z",
+  "updatedAt": "2020-01-24T08:34:32.289Z",
+  "createdBy": "d60edb18-6952-4935-8d51-b40d93fbb8b8",
+  "updatedBy": "e96e21a3-9770-48ee-a11f-bc0b19801f5b",
+  "historyIncluded": true,
+  "transactionIntId": 24,
+  "amount": 100000,
+  "currencyId": "IDR",
+  "balance": 0,
+  "balanceId": "732c59e9-707c-40f3-b83e-c8202d640455",
+  "balanceIntId": 10,
+  "ref": "POSTMAN",
+  "wallexRef": "200124-FUN-476228E1",
+  "status": "completed",
+  "type": "credit",
+  "completedAt": "2020-01-24T08:34:32.279Z",
+  "domain": "funding",
+  "domainId": "98d81042-2036-4e5e-a497-1fecabb58809",
+  "domainIntId": 18,
+  "domainRef": "POSTMAN",
+  "username": "wallex.test+c1@outlook.com",
+  "userIntId": 7,
+  "accountIntId": 4,
+  "wallexFee": 0,
+  "totalAmount": 100000,
+  "ownerName": "C1 Account C"
+}
+----------------------------------
+admin transactions - list
+>>> request: 
+POST
+http://localhost:8080/admin/api/transactions/list
+body: 
+{ related_entity_type: 'conversion', related_entity_id: '2' }
+>>> response: 
+{
+  "data": [
+    {
+      "idtransactions": 19,
+      "id": "038a90b0-8d9c-47a4-b3d0-cab120a3d0f8",
+      "amount": 1007300,
+      "balance": 0,
+      "currency": "IDR",
+      "balance_id": "06719010-73bf-4e7a-abb6-03b66ee8bdc8",
+      "reference": "-",
+      "wallex_ref": "200124-CON-038A90B0",
+      "status": "pending",
+      "type": "debit",
+      "settle_date": "2020-01-25T08:34:27.000",
+      "creation_date": "2020-01-24T08:34:26.640",
+      "updated_date": "2020-01-24T08:34:31.993",
+      "completion_date": null,
+      "related_entity_type": "conversion",
+      "related_entity_id": 2,
+      "related_entity_reference": "20200124-MCCJQK",
+      "username": "wallex.test+b1@outlook.com",
+      "idusers": 5,
+      "id_account": 3,
+      "wallex_fee": 44804,
+      "total_amount": 1052104,
+      "owner_name": "B1 Account B"
+    },
+    {
+      "idtransactions": 20,
+      "id": "b77e84c7-304e-41cd-9f9c-5a989e4d08ca",
+      "amount": 100,
+      "balance": 0,
+      "currency": "SGD",
+      "balance_id": "2d63c755-8228-4731-986f-956d5bd8fcfa",
+      "reference": "-",
+      "wallex_ref": "200124-CON-B77E84C7",
+      "status": "pending",
+      "type": "credit",
+      "settle_date": "2020-01-25T08:34:27.000",
+      "creation_date": "2020-01-24T08:34:26.672",
+      "updated_date": "2020-01-24T08:34:32.001",
+      "completion_date": null,
+      "related_entity_type": "conversion",
+      "related_entity_id": 2,
+      "related_entity_reference": "20200124-MCCJQK",
+      "username": "wallex.test+b1@outlook.com",
+      "idusers": 5,
+      "id_account": 3,
+      "wallex_fee": 0,
+      "total_amount": 100,
+      "owner_name": "B1 Account B"
+    }
+  ],
+  "pagination": {
+    "item_count": 2,
+    "page": 1,
+    "per_page": 10000,
+    "search": [],
+    "total_entries": 2,
+    "total_pages": 1
+  }
+}
+----------------------------------
+Seq Funding Accept v2 - 3 - Accept ran successfully.
+-- Login: vito+admin@wallextech.com
+>>> request: 
+POST
+http://localhost:8080/api/users/login
+body: 
+{
+  username: 'vito+admin@wallextech.com',
+  password: 'Wallex$2019',
+  action: 'login_admin'
+}
+>>> response: 
+{
+  "user": {
+    "idusers": 1,
+    "id": "e96e21a3-9770-48ee-a11f-bc0b19801f5b",
+    "id_account": 1,
+    "username": "vito+admin@wallextech.com",
+    "customer_ref": "200124-00001",
+    "email": "vito+admin@wallextech.com",
+    "status": "3",
+    "status_internal_code": "1100",
+    "first_name": "Admin",
+    "last_name": "Wallex",
+    "mobile_country_code": "+65",
+    "mobile_telephone": "98465682",
+    "country": "SG",
+    "last_login": null,
+    "last_logout": null,
+    "failed_attempts": 0,
+    "last_failed": null,
+    "language": "en",
+    "level": 2,
+    "origin": "wallex",
+    "department": "directors",
+    "timezone": "Asia/Singapore",
+    "referral_code": null,
+    "follow_up": null,
+    "disabled_at": null,
+    "email_verified_at": null,
+    "account": {
+      "id": "bfbb8270-68e4-4e89-a639-bc6cfeabb1a6",
+      "id_account": 1,
+      "name": "Wallex Technologies Pte Ltd",
+      "business_type": "A - Agriculture, forestry and fishing",
+      "account_class": "standard",
+      "type": "company",
+      "partner_id": null,
+      "created_at": "2020-01-24T08:33:36.472",
+      "approved_at": null
+    },
+    "approved_at": null,
+    "status_code": "APPROVED",
+    "roles": [ "user", "admin" ],
+    "role": "admin",
+    "last_active_client": {},
+    "clients": [],
+    "products": [ "web-app" ],
+    "isAdmin": 0,
+    "isDealer": 0,
+    "hasVa": 0,
+    "hasApp": 1,
+    "notification_method": "SMS",
+    "company_name": "Brown, Hagenes and Erdman",
+    "partner": null,
+    "current_client": null,
+    "mfa_status": { "login": { "status": "verified" } },
+    "current_login": "2020-01-24 08:34:31",
+    "last_active_time": 1579854871,
+    "screenings": [],
+    "permissions": { "settlement": [ "approve", "reject", "view", "list", "update" ] },
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aXRvK2FkbWluQHdhbGxleHRlY2guY29tIiwiaWF0IjoxNTc5ODU0ODcxfQ==.50AiAd1Xqp0kSKi09jTadWW-j4KcPlVVaq7XIynIczw="
+  },
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aXRvK2FkbWluQHdhbGxleHRlY2guY29tIiwiaWF0IjoxNTc5ODU0ODcxfQ==.50AiAd1Xqp0kSKi09jTadWW-j4KcPlVVaq7XIynIczw="
+}
+----------------------------------
+admin transactions - list
+>>> request: 
+POST
+http://localhost:8080/admin/api/transactions/list
+body: 
+{ related_entity_type: 'funding', related_entity_id: '19' }
+>>> response: 
+{
+  "data": [
+    {
+      "idtransactions": 29,
+      "id": "cb8216f5-b82b-4f1b-80f5-8993953aa43d",
+      "amount": 5126108,
+      "balance": 0,
+      "currency": "IDR",
+      "balance_id": "03533655-aa17-46db-8a56-0426694a924b",
+      "reference": "POSTMAN",
+      "wallex_ref": "200124-FUN-CB8216F5",
+      "status": "pending",
+      "type": "credit",
+      "settle_date": null,
+      "creation_date": "2020-01-24T08:34:30.170",
+      "updated_date": "2020-01-24T08:34:30.188",
+      "completion_date": null,
+      "related_entity_type": "funding",
+      "related_entity_id": 19,
+      "related_entity_reference": "POSTMAN",
+      "username": "wallex.test+d1@outlook.com",
+      "idusers": 9,
+      "id_account": 5,
+      "wallex_fee": 0,
+      "total_amount": 5126108,
+      "owner_name": "D1 Account D"
+    }
+  ],
+  "pagination": {
+    "item_count": 1,
+    "page": 1,
+    "per_page": 10000,
+    "search": [],
+    "total_entries": 1,
+    "total_pages": 1
+  }
+}
+----------------------------------
+Transactions - Accept
+>>> request: 
+PUT
+http://localhost:8080/admin/api/transactions/accept
+body: 
+{ idtransactions: '29' }
+>>> response: 
+{
+  "id": "cb8216f5-b82b-4f1b-80f5-8993953aa43d",
+  "accountId": "b95dd215-397b-4979-a2f3-d78998c08a8d",
+  "createdAt": "2020-01-24T08:34:30.170Z",
+  "updatedAt": "2020-01-24T08:34:32.114Z",
+  "createdBy": "5eb46d3e-4fc4-4dbc-9c2b-add67bbbc259",
+  "updatedBy": "e96e21a3-9770-48ee-a11f-bc0b19801f5b",
+  "historyIncluded": true,
+  "transactionIntId": 29,
+  "amount": 5126108,
+  "currencyId": "IDR",
+  "balance": 0,
+  "balanceId": "03533655-aa17-46db-8a56-0426694a924b",
+  "balanceIntId": 12,
+  "ref": "POSTMAN",
+  "wallexRef": "200124-FUN-CB8216F5",
+  "status": "completed",
+  "type": "credit",
+  "completedAt": "2020-01-24T08:34:32.107Z",
+  "domain": "funding",
+  "domainId": "15c8db46-e5c0-4d7d-a69e-3ccf40744299",
+  "domainIntId": 19,
+  "domainRef": "POSTMAN",
+  "username": "wallex.test+d1@outlook.com",
+  "userIntId": 9,
+  "accountIntId": 5,
+  "wallexFee": 0,
+  "totalAmount": 5126108,
+  "ownerName": "D1 Account D"
+}
+----------------------------------
+admin transactions - list
+>>> request: 
+POST
+http://localhost:8080/admin/api/transactions/list
+body: 
+{ related_entity_type: 'conversion', related_entity_id: [ '2', '2' ] }
+>>> response: 
+{
+  "data": [
+    {
+      "idtransactions": 19,
+      "id": "038a90b0-8d9c-47a4-b3d0-cab120a3d0f8",
+      "amount": 1007300,
+      "balance": 0,
+      "currency": "IDR",
+      "balance_id": "06719010-73bf-4e7a-abb6-03b66ee8bdc8",
+      "reference": "-",
+      "wallex_ref": "200124-CON-038A90B0",
+      "status": "pending",
+      "type": "debit",
+      "settle_date": "2020-01-25T08:34:27.000",
+      "creation_date": "2020-01-24T08:34:26.640",
+      "updated_date": "2020-01-24T08:34:31.993",
+      "completion_date": null,
+      "related_entity_type": "conversion",
+      "related_entity_id": 2,
+      "related_entity_reference": "20200124-MCCJQK",
+      "username": "wallex.test+b1@outlook.com",
+      "idusers": 5,
+      "id_account": 3,
+      "wallex_fee": 44804,
+      "total_amount": 1052104,
+      "owner_name": "B1 Account B"
+    },
+    {
+      "idtransactions": 20,
+      "id": "b77e84c7-304e-41cd-9f9c-5a989e4d08ca",
+      "amount": 100,
+      "balance": 0,
+      "currency": "SGD",
+      "balance_id": "2d63c755-8228-4731-986f-956d5bd8fcfa",
+      "reference": "-",
+      "wallex_ref": "200124-CON-B77E84C7",
+      "status": "pending",
+      "type": "credit",
+      "settle_date": "2020-01-25T08:34:27.000",
+      "creation_date": "2020-01-24T08:34:26.672",
+      "updated_date": "2020-01-24T08:34:32.001",
+      "completion_date": null,
+      "related_entity_type": "conversion",
+      "related_entity_id": 2,
+      "related_entity_reference": "20200124-MCCJQK",
+      "username": "wallex.test+b1@outlook.com",
+      "idusers": 5,
+      "id_account": 3,
+      "wallex_fee": 0,
+      "total_amount": 100,
+      "owner_name": "B1 Account B"
+    }
+  ],
+  "pagination": {
+    "item_count": 2,
+    "page": 1,
+    "per_page": 10000,
+    "search": [],
+    "total_entries": 2,
+    "total_pages": 1
+  }
+}
+----------------------------------
+Seq Funding Accept v2 - 4 - Accept ran successfully.
+test success
+
