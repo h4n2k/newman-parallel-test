@@ -4,6 +4,7 @@
   "description": "Simple parallel test which run multiple postman collection in parallel ",
   "main": "index.js",
   "scripts": {
+    "seed": "node seed.js",
     "start": "node index.js"
   },
   "repository": "https://github.com/h4n2k/newman-parallel-test.git",
